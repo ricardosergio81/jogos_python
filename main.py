@@ -11,8 +11,7 @@ def main():
                       "Escolha o jogo:"))
 
     if jogo == 1:
-        advinhacao = Advinhacao()
-        advinhacao.jogar()
+        Advinhacao().jogar()
     else:
         print("O jogo de forca ainda não foi implementado.")
 
