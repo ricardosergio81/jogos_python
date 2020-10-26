@@ -1,4 +1,4 @@
-from advinhacao import advinhacao
+from advinhacao.advinhacao import Advinhacao
 
 
 def main():
@@ -12,10 +12,11 @@ def main():
                       "Escolha o jogo:"))
 
     if jogo == 1:
-        advinhacao()
+        advinhacao = Advinhacao()
+        advinhacao.jogar()
     else:
         print("O jogo de forca ainda não foi implementado.")
-
+1
 
 if __name__ == "__main__":
     main()
