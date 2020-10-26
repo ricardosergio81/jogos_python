@@ -25,11 +25,9 @@ class Advinhacao:
         for i in range(0, tentativas):
 
             print("Tentativa {} de {}".format(i + 1, tentativas))
-            valor_tentativa = int(input("Informe um número:"))
+            valor_tentativa = int( input("Informe um número:"))
 
             if valor_tentativa == self.__sorteado:
-                print("****************************")
-                print("Parabéns\nVocê acertou!")
                 acertou = True
                 break
             elif valor_tentativa > self.__sorteado:
@@ -37,13 +35,17 @@ class Advinhacao:
             else:
                 print("Você errou.\nO número é MAIOR! Tente novamente.")
 
-        if not acertou:
-            print("****************************")
-            print("Que pena, você não acertou o número.\nTente novamente, quem sabe na próxima não acerte.")
-
+        self.__mensagem_final(acertou)
 
     def __sorteia_numero(self):
         return random.randrange(self.__numero_de, (self.__numero_ate + 1))
+
+    def __mensagem_final(self, acertou):
+        print("****************************")
+        if acertou:
+            print("Que pena, você não acertou o número.\nTente novamente, quem sabe na próxima não acerte.")
+        else:
+            print("Parabéns\nVocê acertou!\nTente a sorte novamente!")
 
     def __introducao(self):
         print("****************************")
