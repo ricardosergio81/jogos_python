@@ -16,7 +16,7 @@ def main():
         advinhacao.jogar()
     else:
         print("O jogo de forca ainda não foi implementado.")
-1
+
 
 if __name__ == "__main__":
     main()
