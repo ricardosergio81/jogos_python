@@ -1,12 +1,13 @@
+from pathlib import Path
 import random
-
+import json
 
 class Advinhacao:
 
     def __init__(self):
-        self.__tentativas = 30
-        self.__numero_de = 0
-        self.__numero_ate = 10
+        self.__carrega_propriedades()
+        self.__numero_de = self.__propriedades["numero_de"]
+        self.__numero_ate = self.__propriedades["numero_ate"]
 
     def jogar(self):
         acertou = False
@@ -55,10 +56,12 @@ class Advinhacao:
                   "3 dificil\n"
                   "Escolha o nível:"))
 
-
     def __marca_tentativas(self):
-       return int(self.__tentativas / self.__nivel)
+       return self.__propriedades['niveis']['nivel' + str(self.__nivel)]
 
+    def __carrega_propriedades(self):
+        file_json = str(Path(__file__).parent.absolute()) + '/propriedades.json'
+        self.__propriedades = json.load(open(file_json))
 
 
 if __name__ == "__main__":

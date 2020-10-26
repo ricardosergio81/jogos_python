@@ -1,6 +1,5 @@
 from advinhacao.advinhacao import Advinhacao
 
-
 def main():
     print("****************************")
     print("****** JOGO EM PYTHON ******")
