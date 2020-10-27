@@ -7,9 +7,6 @@ class Pontuacao:
     def __init__(self, jogo, pontuacao):
         self.__jogo = jogo
         self.__pontuacao = pontuacao
-
-        self.__pontuacao_geral = []
-        #self.__pontuacao_geral["pontos"] = "0"
         self.__carrega_pontuacao_geral()
 
     def ganhou_pontos(self, pontos):

@@ -22,6 +22,7 @@ class JogoAdvinhacao:
             self.__advinhacao = Advinhacao(self.__propriedades["numero_de"], self.__propriedades["numero_ate"])
             acertou = self.__interacoes()
 
+            self.__pontuacao.acumula_pontos()
             self.__mensagem_final(acertou)
             quero_jogar = self.__quero_jogar()
             print(self.__textos["espacamento"])
@@ -53,7 +54,6 @@ class JogoAdvinhacao:
         else:
             print(self.__textos["mensagem_final_errou"])
 
-        self.__pontuacao.acumula_pontos()
         print(self.__textos["pontos_rodada"].format(self.__pontuacao.pontuacao_rodada()))
         print(self.__textos["pontos_acumulados"].format(self.__pontuacao.pontuacao_geral()))
 
