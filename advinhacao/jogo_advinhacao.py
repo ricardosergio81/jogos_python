@@ -34,21 +34,15 @@ class JogoAdvinhacao:
         print(self.__textos["interacoes"].format(tentativas, self.__advinhacao.numero_de, self.__advinhacao.numero_ate))
 
         for i in range(0, tentativas):
-            diferenca = self.__textos["diferenca_maior"]
             print(self.__textos["diferenca_tentativa"].format(i + 1, tentativas))
             valor_tentativa = int(input(self.__textos["informe_numero"]))
+            acertou = self.__advinhacao.jogo(valor_tentativa)
 
-            resultado = self.__advinhacao.jogo(valor_tentativa)
-
-            if resultado == 0:
-                acertou = True
+            if acertou:
                 break
-            elif resultado == -1:
-                diferenca = self.__textos["diferenca_menor"]
-
-            print(self.__textos["tente_novamente"].format(diferenca))
-            self.__pontos -= self.__propriedades['pontos_decremento']
-
+            else:
+                print(self.__textos["tente_novamente"].format(self.__textos["diferenca_"+self.__advinhacao.texto_perdeu]))
+                self.__pontos -= self.__propriedades['pontos_decremento']
         return acertou
 
     def __mensagem_final(self, acertou):
@@ -84,7 +78,3 @@ class JogoAdvinhacao:
     def __carrega_textos(self):
         file_json = str(Path(__file__).parent.absolute()) + '/dicionario.json'
         self.__textos = json.load(open(file_json))
-
-
-if __name__ == "__main__":
-     JogoAdvinhacao().jogar()
