@@ -1,8 +1,8 @@
 {
    "niveis":{
       "nivel1":{
-         "tentativas":30,
-         "pontos_iniciais":30,
+         "tentativas":10,
+         "pontos_iniciais":10,
          "pontos_decremento":1,
          "numero_de":0,
          "numero_ate":10
@@ -16,7 +16,7 @@
       },
       "nivel3":{
          "tentativas":10,
-         "pontos_iniciais":50,
+         "pontos_iniciais":100,
          "pontos_decremento":10,
          "numero_de":0,
          "numero_ate":100

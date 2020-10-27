@@ -1,4 +1,5 @@
-from advinhacao.advinhacao import Advinhacao
+from adivinhacao.adivinhacao import Advinhacao
+from pontuacao.pontuacao import Pontuacao
 from pathlib import Path
 import json
 
@@ -16,7 +17,7 @@ class JogoAdvinhacao:
         while quero_jogar:
             nivel = self.__introducao_nivel()
             self.__propriedades_niveis(nivel)
-            self.__pontos = self.__propriedades['pontos_iniciais']
+            self.__pontuacao = Pontuacao("adivinhacao",  self.__propriedades['pontos_iniciais'])
 
             self.__advinhacao = Advinhacao(self.__propriedades["numero_de"], self.__propriedades["numero_ate"])
             acertou = self.__interacoes()
@@ -42,7 +43,7 @@ class JogoAdvinhacao:
                 break
             else:
                 print(self.__textos["tente_novamente"].format(self.__textos["diferenca_"+self.__advinhacao.texto_perdeu]))
-                self.__pontos -= self.__propriedades['pontos_decremento']
+                self.__pontuacao.perdeu_pontos(self.__propriedades['pontos_decremento'])
         return acertou
 
     def __mensagem_final(self, acertou):
@@ -52,9 +53,9 @@ class JogoAdvinhacao:
         else:
             print(self.__textos["mensagem_final_errou"])
 
-        print(self.__textos["pontos_rodada"].format(self.__pontos))
-        self.__pontos_geral += self.__pontos
-        print(self.__textos["pontos_acumulados"].format(self.__pontos_geral))
+        self.__pontuacao.acumula_pontos()
+        print(self.__textos["pontos_rodada"].format(self.__pontuacao.pontuacao_rodada()))
+        print(self.__textos["pontos_acumulados"].format(self.__pontuacao.pontuacao_geral()))
 
     def __introducao(self):
         print(self.__textos["introducao"])
