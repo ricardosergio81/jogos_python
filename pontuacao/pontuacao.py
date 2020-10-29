@@ -18,8 +18,8 @@ class Pontuacao:
     def pontuacao_rodada(self):
         return self.__pontuacao
 
-    def acumula_pontos(self):
-        self.__pontuacao_geral["pontos"] += self.__pontuacao
+    def acumula_pontos(self, pontos):
+        self.__pontuacao_geral["pontos"] += pontos
         self.__grava_pontuacao_geral()
 
     def pontuacao_geral(self):
@@ -30,7 +30,7 @@ class Pontuacao:
         if os.path.isfile(file_json) and os.access(file_json, os.R_OK):
             self.__pontuacao_geral = json.load(open(file_json))
         else:
-            self.__pontuacao_geral = {"pontos": 0 }
+            self.__pontuacao_geral = {"pontos": 0}
 
     def __grava_pontuacao_geral(self):
         file_json = str(Path(__file__).parent.absolute()) + "/jogos/" + self.__jogo + ".json"

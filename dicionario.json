@@ -1,0 +1,9 @@
+{
+  "espacamento": "****************************",
+  "fim": "******** ATÉ MAIS **********\n****************************",
+  "mensagem_final_acertou": "Parabéns\nVocê acertou!\nTente novamente e faça mais pontos!",
+  "mensagem_final_errou": "Que pena, você não acertou.\nTente novamente, quem sabe na próxima não acerte.",
+  "pontos_rodada": "Você fez {} pontos nessa rodada.",
+  "pontos_acumulados": "Você tem acumulado {}.",
+  "quero_jogar" : "Deseja jogar novamente?\n(1/S) Sim\n(2/N) Não"
+}

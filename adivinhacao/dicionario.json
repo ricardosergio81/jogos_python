@@ -1,9 +1,7 @@
 {
   "espacamento": "****************************",
-  "fim": "******** ATÉ MAIS **********",
   "introducao" : "****************************\n**** JOGO DE ADVINHAÇÃO ****\n****************************",
   "introducao_nivel" : "Dificuldade:\n1 fácil\n2 médio\n3 dificil\nEscolha o nível:",
-  "quero_jogar" : "Deseja jogar novamente?\n(1/S) Sim\n(2/N) Não",
   "mensagem_final_acertou": "Parabéns\nVocê acertou!\nTente novamente e faça mais pontos!",
   "mensagem_final_errou": "Que pena, você não acertou o número.\nTente novamente, quem sabe na próxima não acerte.",
   "interacoes": "Você tera {} tentativas para acertar o número entre {} e {}",
@@ -11,7 +9,5 @@
   "diferenca_menor": "MENOR",
   "diferenca_tentativa": "Tentativa {} de {}",
   "informe_numero": "Informe um número:",
-  "tente_novamente": "Você errou.\nO número é {}! Tente novamente.",
-  "pontos_rodada": "Você fez {} pontos nessa rodada.",
-  "pontos_acumulados": "Você tem acumulado {}."
+  "tente_novamente": "Você errou.\nO número é {}! Tente novamente."
 }

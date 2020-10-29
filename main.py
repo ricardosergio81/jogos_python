@@ -1,3 +1,4 @@
+from jogos import Jogos
 from adivinhacao.jogo_adivinhacao import JogoAdvinhacao
 
 def main():
@@ -11,7 +12,8 @@ def main():
                       "Escolha o jogo:"))
 
     if jogo == 1:
-        JogoAdvinhacao().jogar()
+        jogos = Jogos("adivinhacao", "adivinhacao.jogo_adivinhacao", "JogoAdvinhacao")
+        jogos.jogar()
     else:
         print("O jogo de forca ainda não foi implementado.")
 
