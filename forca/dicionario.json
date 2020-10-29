@@ -1,0 +1,13 @@
+{
+  "espacamento": "****************************",
+  "introducao" : "****************************\n**** JOGO DE FORCA ****\n****************************",
+  "introducao_nivel" : "Dificuldade:\n1 fácil\n2 médio\n3 dificil\nEscolha o nível:",
+  "mensagem_final_acertou": "Parabéns\nVocê acertou!\nTente novamente e faça mais pontos!",
+  "mensagem_final_errou": "Que pena, você não acertou o número.\nTente novamente, quem sabe na próxima não acerte.",
+  "interacoes": "Você tera {} tentativas para acertar o número entre {} e {}",
+  "diferenca_maior": "MAIOR",
+  "diferenca_menor": "MENOR",
+  "diferenca_tentativa": "Tentativa {} de {}",
+  "informe_numero": "Informe um número:",
+  "tente_novamente": "Você errou.\nO número é {}! Tente novamente."
+}
