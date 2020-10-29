@@ -1,5 +1,4 @@
 from jogos import Jogos
-from adivinhacao.jogo_adivinhacao import JogoAdvinhacao
 
 def main():
     print("****************************")

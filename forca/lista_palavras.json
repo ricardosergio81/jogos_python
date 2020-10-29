@@ -1,0 +1,20 @@
+{
+  "abelha": {
+     "dica": "inseto"
+  },
+  "cachorro": {
+     "dica": "animal"
+  },
+  "gato": {
+     "dica": "animal"
+  },
+  "leão": {
+     "dica": "animal"
+  },
+  "alface": {
+     "dica": "verdura"
+  },
+  "maçã": {
+     "dica": "fruta"
+  }
+}
