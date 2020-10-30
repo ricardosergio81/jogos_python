@@ -14,7 +14,8 @@ def main():
         jogos = Jogos("adivinhacao", "adivinhacao.jogo_adivinhacao", "JogoAdvinhacao")
         jogos.jogar()
     else:
-        print("O jogo de forca ainda não foi implementado.")
+        jogos = Jogos("forca", "forca.jogo_forca", "JogoForca")
+        jogos.jogar()
 
 
 if __name__ == "__main__":

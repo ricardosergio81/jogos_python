@@ -1,20 +1,12 @@
 {
-  "abelha": {
-     "dica": "inseto"
+  "nivel1":[
+  {
+    "palavra":"abelha",
+   "dica" :"inseto"
   },
-  "cachorro": {
-     "dica": "animal"
-  },
-  "gato": {
-     "dica": "animal"
-  },
-  "leão": {
-     "dica": "animal"
-  },
-  "alface": {
-     "dica": "verdura"
-  },
-  "maçã": {
-     "dica": "fruta"
+  {
+    "palavra":"maça",
+   "dica" :"fruta"
   }
+  ]
 }

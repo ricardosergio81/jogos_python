@@ -1,37 +1,31 @@
+from pathlib import Path
+import json
 import random
 
 
 class Forca:
 
-    def __init__(self, numero_de, numero_ate):
-        self.__numero_de = numero_de
-        self.__numero_ate = numero_ate
-        self.__sorteado = self.__sorteia_numero()
+    def __init__(self):
+        self.__sorteado = self.__sorteia()
         self.__ganhou = False
         self.__texto_perdeu = ""
 
     def jogo(self, valor_tentativa):
-        resultado = False
-        if valor_tentativa == self.__sorteado:
-            resultado = True
-        elif valor_tentativa > self.__sorteado:
-            self.__texto_perdeu = "menor"
-        else:
-            self.__texto_perdeu = "maior"
-
+        resultado = valor_tentativa in self.__sorteado['palavra']
+        self.__texto_perdeu = "maior"
         return resultado
+
+    def __fim_de_jogo(self):
+        return False
 
     @property
     def texto_perdeu(self):
         return self.__texto_perdeu
 
-    @property
-    def numero_de(self):
-        return self.__numero_de
+    def __sorteia(self):
+        file_json = str(Path(__file__).parent.absolute()) + "/lista_palavras.json"
+        with open(file_json, 'r') as outfile:
+           lista_palavras = json.load(outfile)
+           random_index = random.randrange(0, len(lista_palavras['nivel1']) )
+           return lista_palavras['nivel1'][random_index]
 
-    @property
-    def numero_ate(self):
-        return self.__numero_ate
-
-    def __sorteia_numero(self):
-        return random.randrange(self.__numero_de, (self.__numero_ate + 1))
