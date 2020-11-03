@@ -20,12 +20,14 @@ class JogoForca():
         self.__forca = Forca()
         self.__pontuacao = Pontuacao("forca", self.__propriedades['pontos_iniciais'])
 
-        tentativas = self.__propriedades['tentativas']
-        print(self.__textos["interacoes"].format(tentativas))
+        total_de_tentativas = self.__propriedades['tentativas']
+        print(self.__textos["interacoes"].format(total_de_tentativas))
         print(self.__forca.palavra_oculta)
 
-        for i in range(0, tentativas):
-            print(self.__textos["diferenca_tentativa"].format(i + 1, tentativas))
+        fim_de_jogo = False
+        tentativa = 1
+        while not fim_de_jogo:
+            print(self.__textos["diferenca_tentativa"].format(tentativa, total_de_tentativas))
             valor_tentativa = input(self.__textos["informe_entrada"])
             self.acertou = self.__forca.jogo(valor_tentativa)
 
@@ -34,6 +36,9 @@ class JogoForca():
 
             print(self.__textos[self.__forca.texto_perdeu])
             print(self.__forca.palavra_oculta)
+
+            fim_de_jogo = (not self.__forca.acertou_palavra) | tentativa >= total_de_tentativas
+            tentativa += 1
 
 
     def pontuacao_rodada(self):

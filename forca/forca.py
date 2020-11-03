@@ -44,9 +44,9 @@ class Forca:
     def __ocultar_palavra(self, palavra):
         return ["_" for letra in palavra]
 
-
-    def __fim_de_jogo(self):
-        return False
+    @property
+    def acertou_palavra(self):
+        return "_" in self.__palavra_oculta
 
     @property
     def texto_perdeu(self):
