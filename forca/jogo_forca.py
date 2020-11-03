@@ -22,17 +22,19 @@ class JogoForca():
 
         tentativas = self.__propriedades['tentativas']
         print(self.__textos["interacoes"].format(tentativas))
+        print(self.__forca.palavra_oculta)
 
         for i in range(0, tentativas):
             print(self.__textos["diferenca_tentativa"].format(i + 1, tentativas))
             valor_tentativa = input(self.__textos["informe_entrada"])
             self.acertou = self.__forca.jogo(valor_tentativa)
 
-            if self.acertou:
-                break
-            else:
-                print(self.__textos["tente_novamente"])
+            if not self.acertou:
                 self.__pontuacao.perdeu_pontos(self.__propriedades['pontos_decremento'])
+
+            print(self.__textos[self.__forca.texto_perdeu])
+            print(self.__forca.palavra_oculta)
+
 
     def pontuacao_rodada(self):
         return self.__pontuacao.pontuacao_rodada()

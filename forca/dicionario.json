@@ -7,5 +7,7 @@
   "interacoes": "Você tera {} tentativas para acertar a palavra secreta.",
   "diferenca_tentativa": "Tentativa {} de {}",
   "informe_entrada": "Informe uma letra:",
-  "tente_novamente": "Você errou.\nA palavra secreta é {}! Tente novamente."
+  "tente_novamente": "Você errou.\nTente novamente.",
+  "acertou": "Você acertou.\nTente novamente.",
+  "letra_informada": "Letra já informada.\nTente novamente."
 }
