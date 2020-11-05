@@ -17,11 +17,12 @@ class JogoForca():
         nivel = int(input(self.__textos["introducao_nivel"]))
         self.__propriedades_niveis(nivel)
 
-        self.__forca = Forca()
+        self.__forca = Forca(nivel)
         self.__pontuacao = Pontuacao("forca", self.__propriedades['pontos_iniciais'])
 
         total_de_tentativas = self.__propriedades['tentativas']
         print(self.__textos["interacoes"].format(total_de_tentativas))
+        print(self.__textos["dica"].format(self.__forca.dica))
         print(self.__forca.palavra_oculta)
 
         fim_de_jogo = False

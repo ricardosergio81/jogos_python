@@ -1,28 +1,32 @@
 {
-  "nivel1":[
-  {
-    "palavra":"abelha",
-   "dica" :"inseto"
-  },
-  {
-    "palavra":"maça",
-   "dica" :"fruta"
-  },
-  {
-    "palavra":"pera",
-   "dica" :"fruta"
-  },
-  {
-    "palavra":"goiaba",
-   "dica" :"fruta"
-  },
-  {
-    "palavra":"manga",
-   "dica" :"fruta"
-  },
-  {
-    "palavra":"banana",
-   "dica" :"fruta"
-  }
-  ]
+   "nivel1":[
+      {
+         "palavra":"abelha",
+         "dica":"inseto"
+      },
+      {
+         "palavra":"maça",
+         "dica":"fruta"
+      }
+   ],
+   "nivel2":[
+      {
+         "palavra":"pera",
+         "dica":"fruta"
+      },
+      {
+         "palavra":"goiaba",
+         "dica":"fruta"
+      }
+   ],
+   "nivel3":[
+      {
+         "palavra":"manga",
+         "dica":"fruta"
+      },
+      {
+         "palavra":"banana",
+         "dica":"fruta"
+      }
+   ]
 }

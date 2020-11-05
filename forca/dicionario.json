@@ -9,5 +9,6 @@
   "informe_entrada": "Informe uma letra:",
   "tente_novamente": "Você errou.\nTente novamente.",
   "acertou": "Você acertou.\nTente novamente.",
-  "letra_informada": "Letra já informada.\nTente novamente."
+  "letra_informada": "Letra já informada.\nTente novamente.",
+  "dica": "A dica da palavra secreta é: {}"
 }

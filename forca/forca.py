@@ -5,8 +5,8 @@ import random
 
 class Forca:
 
-    def __init__(self):
-        self.__sorteado = self.__sorteia()
+    def __init__(self, nivel):
+        self.__sorteado = self.__sorteia(nivel)
         self.__letras_testadas = ""
         self.__texto_perdeu = ""
         self.__palavra_oculta = self.__ocultar_palavra(self.__sorteado['palavra'].upper())
@@ -36,6 +36,9 @@ class Forca:
                 self.__palavra_oculta[index] = letra
             index += 1
 
+    @property
+    def dica(self):
+        return self.__sorteado['dica'].upper()
 
     @property
     def palavra_oculta(self):
@@ -52,10 +55,10 @@ class Forca:
     def texto_perdeu(self):
         return self.__texto_perdeu
 
-    def __sorteia(self):
+    def __sorteia(self, nivel):
         file_json = str(Path(__file__).parent.absolute()) + "/lista_palavras.json"
         with open(file_json, 'r') as outfile:
            lista_palavras = json.load(outfile)
-           random_index = random.randrange(0, len(lista_palavras['nivel1']))
-           return lista_palavras['nivel1'][random_index]
+           random_index = random.randrange(0, len(lista_palavras['nivel' + str(nivel)]))
+           return lista_palavras['nivel' + str(nivel)][random_index]
 
