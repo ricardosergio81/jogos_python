@@ -1,14 +1,13 @@
 from forca.forca import Forca
+from forca import dicionario, propriedades
 from pontuacao.pontuacao import Pontuacao
-from pathlib import Path
-import json
 
 
 class JogoForca():
 
     def __init__(self):
-        self.__carrega_textos()
-        self.__carrega_propriedades()
+        self.__textos = dicionario
+        self.__arquivo_propriedades = propriedades
 
     def introducao(self):
         print(self.__textos["introducao"])
@@ -52,13 +51,5 @@ class JogoForca():
         else:
             print(self.__textos["mensagem_final_errou"])
 
-    def __carrega_propriedades(self):
-        file_json = str(Path(__file__).parent.absolute()) + '/propriedades.json'
-        self.__arquivo_propriedades = json.load(open(file_json))
-
     def __propriedades_niveis(self, nivel):
         self.__propriedades = self.__arquivo_propriedades['niveis']['nivel' + str(nivel)]
-
-    def __carrega_textos(self):
-        file_json = str(Path(__file__).parent.absolute()) + '/dicionario.json'
-        self.__textos = json.load(open(file_json))
