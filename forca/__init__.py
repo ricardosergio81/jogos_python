@@ -1,10 +1,7 @@
-from pathlib import Path
-import json
+from carrega_json import carrega_json
 
-file_json = str(Path(__file__).parent.absolute()) + '/dicionario.json'
-dicionario = json.load(open(file_json))
+dicionario = carrega_json(__file__, 'dicionario.json')
 
-file_json = str(Path(__file__).parent.absolute()) + '/propriedades.json'
-propriedades = json.load(open(file_json))
+propriedades = carrega_json(__file__, 'propriedades.json')
 
 from .jogo_forca import JogoForca

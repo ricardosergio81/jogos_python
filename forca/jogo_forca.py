@@ -37,7 +37,7 @@ class JogoForca():
             print(self.__textos[self.__forca.texto_perdeu])
             print(self.__forca.palavra_oculta)
 
-            fim_de_jogo = (not self.__forca.acertou_palavra) | tentativa >= total_de_tentativas
+            fim_de_jogo = not (self.__forca.acertou_palavra or tentativa >= total_de_tentativas)
             tentativa += 1
 
 

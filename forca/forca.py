@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 import random
+from carrega_json import carrega_json
 
 
 class Forca:
@@ -56,9 +57,7 @@ class Forca:
         return self.__texto_perdeu
 
     def __sorteia(self, nivel):
-        file_json = str(Path(__file__).parent.absolute()) + "/lista_palavras.json"
-        with open(file_json, 'r') as outfile:
-           lista_palavras = json.load(outfile)
+           lista_palavras = carrega_json(__file__, 'lista_palavras.json')
            random_index = random.randrange(0, len(lista_palavras['nivel' + str(nivel)]))
            return lista_palavras['nivel' + str(nivel)][random_index]
 
