@@ -1,4 +1,4 @@
-from pontuacao.pontuacao import Pontuacao
+from pontuacao.pontuacaojogos import PontuacaoJogos
 from pathlib import Path
 import json
 import importlib
@@ -15,7 +15,7 @@ class Jogos:
 
     def jogar(self):
         self.__instancia.introducao()
-        self.__pontuacao = Pontuacao(self.__nome_jogo, 0)
+        self.__pontuacao = PontuacaoJogos(self.__nome_jogo, 0)
 
         quero_jogar = True
         while quero_jogar:

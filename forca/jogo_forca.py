@@ -1,9 +1,10 @@
 from forca.forca import Forca
 from forca import dicionario, propriedades
-from pontuacao.pontuacao import Pontuacao
+from jogo import Jogo
+from pontuacao.pontuacaojogos import PontuacaoJogos
 
 
-class JogoForca():
+class JogoForca(Jogo):
 
     def __init__(self):
         self.__textos = dicionario
@@ -17,7 +18,7 @@ class JogoForca():
         self.__propriedades_niveis(nivel)
 
         self.__forca = Forca(nivel)
-        self.__pontuacao = Pontuacao("forca", self.__propriedades['pontos_iniciais'])
+        self.__pontuacao = PontuacaoJogos("forca", self.__propriedades['pontos_iniciais'])
 
         total_de_tentativas = self.__propriedades['tentativas']
         print(self.__textos["interacoes"].format(total_de_tentativas))

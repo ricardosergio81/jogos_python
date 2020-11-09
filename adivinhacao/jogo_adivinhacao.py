@@ -1,9 +1,10 @@
 from adivinhacao.adivinhacao import Advinhacao
 from adivinhacao import dicionario, propriedades
-from pontuacao.pontuacao import Pontuacao
+from jogo import Jogo
+from pontuacao.pontuacaojogos import PontuacaoJogos
 
 
-class JogoAdvinhacao():
+class JogoAdvinhacao(Jogo):
 
     def __init__(self):
         self.__textos = dicionario
@@ -17,7 +18,7 @@ class JogoAdvinhacao():
         self.__propriedades_niveis(nivel)
 
         self.__advinhacao = Advinhacao(self.__propriedades["numero_de"], self.__propriedades["numero_ate"])
-        self.__pontuacao = Pontuacao("advinhacao", self.__propriedades['pontos_iniciais'])
+        self.__pontuacao = PontuacaoJogos("advinhacao", self.__propriedades['pontos_iniciais'])
 
         tentativas = self.__propriedades['tentativas']
         print(self.__textos["interacoes"].format(tentativas, self.__advinhacao.numero_de, self.__advinhacao.numero_ate))
