@@ -27,18 +27,21 @@ class JogoForca():
         fim_de_jogo = False
         tentativa = 1
         while not fim_de_jogo:
-            print(self.__textos["diferenca_tentativa"].format(tentativa, total_de_tentativas))
-            valor_tentativa = input(self.__textos["informe_entrada"])
-            self.acertou = self.__forca.jogo(valor_tentativa)
+            try:
+                print(self.__textos["diferenca_tentativa"].format(tentativa, total_de_tentativas))
+                valor_tentativa = input(self.__textos["informe_entrada"])
+                self.acertou = self.__forca.jogo(valor_tentativa)
 
-            if not self.acertou:
-                self.__pontuacao.perdeu_pontos(self.__propriedades['pontos_decremento'])
+                if not self.acertou:
+                    self.__pontuacao.perdeu_pontos(self.__propriedades['pontos_decremento'])
 
-            print(self.__textos[self.__forca.texto_perdeu])
-            print(self.__forca.palavra_oculta)
+                print(self.__textos[self.__forca.texto_perdeu])
+                print(self.__forca.palavra_oculta)
 
-            fim_de_jogo = not (self.__forca.acertou_palavra or tentativa >= total_de_tentativas)
-            tentativa += 1
+                fim_de_jogo = not (self.__forca.acertou_palavra or tentativa >= total_de_tentativas)
+                tentativa += 1
+            except ValueError:
+                print("\n***** Entrada Inválida *****\n")
 
 
     def pontuacao_rodada(self):

@@ -19,13 +19,16 @@ class Jogos:
 
         quero_jogar = True
         while quero_jogar:
-            self.__instancia.interacao()
-            self.__pontuacao.acumula_pontos(self.__instancia.pontuacao_rodada())
-            self.__instancia.mensagem_final()
-            print(self.__textos["pontos_rodada"].format(self.__instancia.pontuacao_rodada()))
-            print(self.__textos["pontos_acumulados"].format(self.__pontuacao.pontuacao_geral()))
-            quero_jogar = self.__quero_jogar()
-            print(self.__textos["espacamento"])
+            try:
+                self.__instancia.interacao()
+                self.__pontuacao.acumula_pontos(self.__instancia.pontuacao_rodada())
+                self.__instancia.mensagem_final()
+                print(self.__textos["pontos_rodada"].format(self.__instancia.pontuacao_rodada()))
+                print(self.__textos["pontos_acumulados"].format(self.__pontuacao.pontuacao_geral()))
+                quero_jogar = self.__quero_jogar()
+                print(self.__textos["espacamento"])
+            except ValueError:
+                print("\n***** Entrada Inválida *****\n")
 
         print(self.__textos["fim"])
 
