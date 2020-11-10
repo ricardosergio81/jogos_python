@@ -10,14 +10,15 @@ class Forca:
         self.__sorteado = self.__sorteia(nivel)
         self.__letras_testadas = ""
         self.__texto_perdeu = ""
-        self.__palavra_oculta = self.__ocultar_palavra(self.__sorteado['palavra'].upper())
+        self.__palavra = self.__sorteado['palavra'].upper()
+        self.__palavra_oculta = self.__ocultar_palavra(self.__palavra)
 
     def jogo(self, valor_tentativa):
         resultado = False
         self.__texto_perdeu = "letra_informada"
 
         if self.letras_testadas(valor_tentativa.upper()):
-            resultado = valor_tentativa.upper() in self.__sorteado['palavra'].upper()
+            resultado = valor_tentativa.upper() in self.__palavra
             self.__texto_perdeu = "acertou"
             self.marca_letra_palavra(valor_tentativa)
 
@@ -32,7 +33,7 @@ class Forca:
 
     def marca_letra_palavra(self, valor_tentativa):
         index = 0
-        for letra in self.__sorteado['palavra'].upper():
+        for letra in self.__palavra:
             if (valor_tentativa.upper() == letra.upper()):
                 self.__palavra_oculta[index] = letra
             index += 1

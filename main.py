@@ -1,5 +1,4 @@
 from jogos import Jogos
-import os
 
 def main():
     print("****************************")
@@ -20,11 +19,9 @@ def main():
                               "Escolha o jogo:"))
 
             if jogo == 2:
-                jogos = Jogos("adivinhacao", "adivinhacao.jogo_adivinhacao", "JogoAdvinhacao")
-                jogos.jogar()
+                Jogos("adivinhacao", "adivinhacao.jogo_adivinhacao", "JogoAdvinhacao").rodar()
             elif jogo == 3:
-                jogos = Jogos("forca", "forca.jogo_forca", "JogoForca")
-                jogos.jogar()
+                Jogos("forca", "forca.jogo_forca", "JogoForca").rodar()
             elif jogo == 9:
                 quero_jogar = False
             else:

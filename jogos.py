@@ -13,7 +13,7 @@ class Jogos:
         self.__carrega_textos()
         self.__instancia = self.__classe()
 
-    def jogar(self):
+    def rodar(self):
         self.__instancia.introducao()
         self.__pontuacao = PontuacaoJogos(self.__nome_jogo, 0)
 

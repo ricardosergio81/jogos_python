@@ -4,7 +4,7 @@ from pontuacao.pontuacao import Pontuacao
 class PontuacaoJogos(Pontuacao):
 
     def __init__(self, jogo, pontuacao):
-        super().__init__()
+        super(PontuacaoJogos, self).__init__()
         self.__jogo = jogo
         self.__pontuacao = pontuacao
         self.__pontuacao_geral = self._carrega_pontuacao(jogo)
@@ -29,10 +29,9 @@ class PontuacaoJogos(Pontuacao):
         return self.__pontuacao_geral["pontos"]
 
     def marca_rodada_atual(self, rodada_atual, total_rodadas):
-        if rodada_atual == -1 or rodada_atual == total_rodadas:
+        if rodada_atual == -1 or rodada_atual == total_rodadas - 1:
             return 0
         else:
-            print(rodada_atual)
             return rodada_atual + 1
 
 
