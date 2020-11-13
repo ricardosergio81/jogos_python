@@ -1,13 +1,9 @@
-from pathlib import Path
-import json
-import random
-from carrega_json import carrega_json
 
 
 class Forca:
 
-    def __init__(self, nivel):
-        self.__sorteado = self.__sorteia(nivel)
+    def __init__(self, palavra):
+        self.__sorteado = palavra
         self.__letras_testadas = ""
         self.__texto_perdeu = ""
         self.__palavra = self.__sorteado['palavra'].upper()
@@ -57,8 +53,4 @@ class Forca:
     def texto_perdeu(self):
         return self.__texto_perdeu
 
-    def __sorteia(self, nivel):
-           lista_palavras = carrega_json(__file__, 'lista_palavras.json')
-           random_index = random.randrange(0, len(lista_palavras['nivel' + str(nivel)]))
-           return lista_palavras['nivel' + str(nivel)][random_index]
 

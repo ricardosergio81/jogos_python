@@ -1,4 +1,4 @@
-import random
+from sorteio.numeros import Numeros
 
 
 class Advinhacao:
@@ -34,4 +34,7 @@ class Advinhacao:
         return self.__numero_ate
 
     def __sorteia_numero(self):
-        return random.randrange(self.__numero_de, (self.__numero_ate + 1))
+        sorteia = Numeros()
+        sorteia.numero_de = self.__numero_de
+        sorteia.numero_ate = self.numero_ate
+        return sorteia.sortear()

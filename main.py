@@ -1,5 +1,6 @@
 from jogos import Jogos
 
+
 def main():
     print("****************************")
     print("****** JOGO EM PYTHON ******")
@@ -16,7 +17,7 @@ def main():
                              "5 Mega Sena\n"
                              "9 Sair\n"
                              "\n"
-                              "Escolha o jogo:"))
+                             "Escolha o jogo:"))
 
             if jogo == 2:
                 Jogos("adivinhacao", "adivinhacao.jogo_adivinhacao", "JogoAdvinhacao").rodar()

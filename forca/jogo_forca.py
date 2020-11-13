@@ -2,6 +2,7 @@ from forca.forca import Forca
 from forca import dicionario, propriedades
 from jogo import Jogo
 from pontuacao.pontuacaojogos import PontuacaoJogos
+from sorteio.palavras import Paravras
 
 
 class JogoForca(Jogo):
@@ -17,7 +18,7 @@ class JogoForca(Jogo):
         nivel = int(input(self.__textos["introducao_nivel"]))
         self.__propriedades_niveis(nivel)
 
-        self.__forca = Forca(nivel)
+        self.__forca = Forca(self.__sorteia_palavra())
         self.__pontuacao = PontuacaoJogos("forca", self.__propriedades['pontos_iniciais'])
 
         total_de_tentativas = self.__propriedades['tentativas']
@@ -44,7 +45,6 @@ class JogoForca(Jogo):
             except ValueError:
                 print("\n***** Entrada Inválida *****\n")
 
-
     def pontuacao_rodada(self):
         return self.__pontuacao.pontuacao_rodada()
 
@@ -57,3 +57,7 @@ class JogoForca(Jogo):
 
     def __propriedades_niveis(self, nivel):
         self.__propriedades = self.__arquivo_propriedades['niveis']['nivel' + str(nivel)]
+
+    def __sorteia_palavra(self):
+        palavras = Paravras()
+        return palavras.sortear()

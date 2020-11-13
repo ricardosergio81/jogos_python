@@ -1,0 +1,38 @@
+[
+   {
+      "palavra":"abelha",
+      "tipo":"inseto",
+      "dica":"Inseto",
+      "nivel": 1
+   },
+   {
+      "palavra":"maça",
+      "tipo":"fruta",
+      "dica":"Fruta",
+      "nivel": 1
+   },
+   {
+      "palavra":"pera",
+      "tipo":"fruta",
+      "dica":"Fruta",
+      "nivel": 2
+   },
+   {
+      "palavra":"goiaba",
+      "tipo":"fruta",
+      "dica":"Fruta",
+      "nivel": 2
+   },
+   {
+      "palavra":"manga",
+      "tipo":"fruta",
+      "dica":"Fruta",
+      "nivel": 3
+   },
+   {
+      "palavra":"banana",
+      "tipo":"fruta",
+      "dica":"Fruta",
+      "nivel": 3
+   }
+]
