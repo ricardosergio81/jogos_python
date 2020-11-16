@@ -1,4 +1,5 @@
 from sorteio.numeros import Numeros
+from adivinhacao.adivinhacao_error import PerdeuMaiorError, PerdeuMenorError
 
 
 class Advinhacao:
@@ -7,23 +8,14 @@ class Advinhacao:
         self.__numero_de = numero_de
         self.__numero_ate = numero_ate
         self.__sorteado = self.__sorteia_numero()
-        self.__ganhou = False
-        self.__texto_perdeu = ""
 
     def jogo(self, valor_tentativa):
-        resultado = False
-        if valor_tentativa == self.__sorteado:
-            resultado = True
-        elif valor_tentativa > self.__sorteado:
-            self.__texto_perdeu = "menor"
-        else:
-            self.__texto_perdeu = "maior"
+        if valor_tentativa > self.__sorteado:
+            raise PerdeuMenorError
+        elif valor_tentativa < self.__sorteado:
+            raise PerdeuMaiorError
 
-        return resultado
-
-    @property
-    def texto_perdeu(self):
-        return self.__texto_perdeu
+        return True
 
     @property
     def numero_de(self):

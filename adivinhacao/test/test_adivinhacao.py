@@ -1,4 +1,5 @@
 from unittest import TestCase
+from adivinhacao.adivinhacao_error import PerdeuMaiorError, PerdeuMenorError
 
 from adivinhacao.adivinhacao import Advinhacao
 
@@ -9,14 +10,12 @@ class TestAdivinhacao(TestCase):
         self.advinhacao = Advinhacao(1, 1)
 
     def test_adivinhar_numero_um_com_erro_menor(self):
-        valor_esperado = "menor"
-        self.advinhacao.jogo(2)
-        self.assertEqual(valor_esperado, self.advinhacao.texto_perdeu)
+        with self.assertRaises(PerdeuMenorError):
+            self.advinhacao.jogo(2)
 
     def test_adivinhar_numero_um_com_erro_maior(self):
-        valor_esperado = "maior"
-        self.advinhacao.jogo(0)
-        self.assertEqual(valor_esperado, self.advinhacao.texto_perdeu)
+        with self.assertRaises(PerdeuMaiorError):
+            self.advinhacao.jogo(0)
 
     def test_adivinhar_numero_um_com_acerto(self):
         valor_esperado = True

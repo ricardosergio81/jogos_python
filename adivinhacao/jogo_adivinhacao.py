@@ -2,6 +2,7 @@ from adivinhacao.adivinhacao import Advinhacao
 from adivinhacao import dicionario, propriedades
 from jogo import Jogo
 from pontuacao.pontuacaojogos import PontuacaoJogos
+from adivinhacao.adivinhacao_error import PerdeuMaiorError, PerdeuMenorError
 
 
 class JogoAdvinhacao(Jogo):
@@ -9,6 +10,7 @@ class JogoAdvinhacao(Jogo):
     def __init__(self):
         self.__textos = dicionario
         self.__arquivo_propriedades = propriedades
+        self.__acertou = False
 
     def introducao(self):
         print(self.__textos["introducao"])
@@ -27,23 +29,28 @@ class JogoAdvinhacao(Jogo):
             try:
                 print(self.__textos["diferenca_tentativa"].format(i + 1, tentativas))
                 valor_tentativa = int(input(self.__textos["informe_numero"]))
-                self.acertou = self.__advinhacao.jogo(valor_tentativa)
+                self.__acertou = self.__advinhacao.jogo(valor_tentativa)
 
-                if self.acertou:
+                if self.__acertou:
                     break
-                else:
-                    print(self.__textos["tente_novamente"].format(self.__textos["diferenca_"+self.__advinhacao.texto_perdeu]))
-                    self.__pontuacao.perdeu_pontos(self.__propriedades['pontos_decremento'])
 
+            except PerdeuMenorError:
+                self.__errou_tentativa("diferenca_menor")
+            except PerdeuMaiorError:
+                self.__errou_tentativa("diferenca_maior")
             except ValueError:
                 print("\n***** Entrada Inválida *****\n")
+
+    def __errou_tentativa(self, acao):
+        print(self.__textos["tente_novamente"].format(self.__textos[acao]))
+        self.__pontuacao.perdeu_pontos(self.__propriedades['pontos_decremento'])
 
     def pontuacao_rodada(self):
         return self.__pontuacao.pontuacao_rodada()
 
     def mensagem_final(self):
         print(self.__textos["espacamento"])
-        if self.acertou:
+        if self.__acertou:
             print(self.__textos["mensagem_final_acertou"])
         else:
             print(self.__textos["mensagem_final_errou"])

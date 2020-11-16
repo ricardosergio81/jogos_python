@@ -6,9 +6,6 @@ from pedra_papel_tesoura.pedra_papel_tesoura import PedraPapelTesoura
 
 class TestPedraPapelTesoura(TestCase):
 
-    def setUp(self):
-        jogo = PedraPapelTesoura(EnumPPT.PEDRA)
-
     def test_jogar_pedra_contra_pedra_para_perder(self):
         jogo = PedraPapelTesoura(EnumPPT.PEDRA)
         teste = jogo.jogo(1)
