@@ -1,14 +1,9 @@
 {
   "espacamento": "****************************",
   "introducao" : "****************************\n**** JOGO DE FORCA ****\n****************************",
-  "introducao_nivel" : "Dificuldade:\n1 fácil\n2 médio\n3 dificil\nEscolha o nível:",
-  "mensagem_final_acertou": "Parabéns\nVocê acertou!\nTente novamente e faça mais pontos!",
-  "mensagem_final_errou": "Que pena, você não acertou a palavra secreta.\nTente novamente, quem sabe na próxima não acerte.",
+  "mensagem_final_acertou": "Eu joguei {} e você {}.\n Você ganhou!",
+  "mensagem_final_errou": "Eu joguei {} e você {}.\n Você perdeu.\nTente novamente.",
   "interacoes": "Você tera {} tentativas para acertar a palavra secreta.",
-  "diferenca_tentativa": "Tentativa {} de {}",
-  "informe_entrada": "Informe uma letra:",
-  "tente_novamente": "Você errou.\nTente novamente.",
-  "acertou": "Você acertou.\nTente novamente.",
-  "letra_informada": "Letra já informada.\nTente novamente.",
-  "dica": "A dica da palavra secreta é: {}"
+  "informe_entrada": "Informe \n1 pedra\n2 papel\n3 tesoura\n",
+  "acertou": "Você acertou.\nTente novamente."
 }

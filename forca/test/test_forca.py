@@ -3,7 +3,7 @@ from unittest import TestCase
 from forca.forca import Forca
 
 
-class TestAdivinhacao(TestCase):
+class TestForca(TestCase):
 
 
     def setUp(self):

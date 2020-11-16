@@ -1,18 +1,21 @@
-
+from pedra_papel_tesoura.enum_ppt import EnumPPT
 
 class PedraPapelTesoura:
 
-    def __init__(self):
-        self.__texto_perdeu = ""
+    def __init__(self, valor_sorteado):
+        self.__valor_sorteado = valor_sorteado
 
     def jogo(self, valor_tentativa):
-        resultado = False
-        self.__texto_perdeu = "letra_informada"
+        valor = EnumPPT(valor_tentativa)
 
-        if self.letras_testadas(valor_tentativa.upper()):
-            resultado = valor_tentativa.upper() in self.__palavra
-            self.__texto_perdeu = "acertou"
-            self.marca_letra_palavra(valor_tentativa)
+        if self.__valor_sorteado == EnumPPT.PEDRA and valor == EnumPPT.PAPEL:
+            return True
+        elif self.__valor_sorteado == EnumPPT.PAPEL and valor == EnumPPT.TESOURA:
+            return True
+        elif self.__valor_sorteado == EnumPPT.TESOURA and valor == EnumPPT.PEDRA:
+            return True
 
-        return resultado
+        return False
 
+    def valor_sorteado(self):
+        return self.__valor_sorteado
