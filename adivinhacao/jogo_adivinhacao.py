@@ -13,47 +13,47 @@ class JogoAdvinhacao(Jogo):
         self.__acertou = False
 
     def introducao(self):
-        print(self.__textos["introducao"])
+        print(self.__textos.introducao)
 
     def interacao(self):
-        nivel = int(input(self.__textos["introducao_nivel"]))
+        nivel = int(input(self.__textos.introducao_nivel))
         self.__propriedades_niveis(nivel)
 
         self.__advinhacao = Advinhacao(self.__propriedades["numero_de"], self.__propriedades["numero_ate"])
         self.__pontuacao = PontuacaoJogos("advinhacao", self.__propriedades['pontos_iniciais'])
 
         tentativas = self.__propriedades['tentativas']
-        print(self.__textos["interacoes"].format(tentativas, self.__advinhacao.numero_de, self.__advinhacao.numero_ate))
+        print(self.__textos.interacoes.format(tentativas, self.__advinhacao.numero_de, self.__advinhacao.numero_ate))
 
         for i in range(0, tentativas):
             try:
-                print(self.__textos["diferenca_tentativa"].format(i + 1, tentativas))
-                valor_tentativa = int(input(self.__textos["informe_numero"]))
+                print(self.__textos.diferenca_tentativa.format(i + 1, tentativas))
+                valor_tentativa = int(input(self.__textos.informe_numero))
                 self.__acertou = self.__advinhacao.jogo(valor_tentativa)
 
                 if self.__acertou:
                     break
 
             except PerdeuMenorError:
-                self.__errou_tentativa("diferenca_menor")
+                self.__errou_tentativa(self.__textos.diferenca_menor)
             except PerdeuMaiorError:
-                self.__errou_tentativa("diferenca_maior")
+                self.__errou_tentativa(self.__textos.diferenca_maior)
             except ValueError:
                 print("\n***** Entrada Inválida *****\n")
 
-    def __errou_tentativa(self, acao):
-        print(self.__textos["tente_novamente"].format(self.__textos[acao]))
+    def __errou_tentativa(self, mensagem):
+        print(self.__textos.tente_novamente.format(mensagem))
         self.__pontuacao.perdeu_pontos(self.__propriedades['pontos_decremento'])
 
     def pontuacao_rodada(self):
         return self.__pontuacao.pontuacao_rodada()
 
     def mensagem_final(self):
-        print(self.__textos["espacamento"])
+        print(self.__textos.espacamento)
         if self.__acertou:
-            print(self.__textos["mensagem_final_acertou"])
+            print(self.__textos.mensagem_final_acertou)
         else:
-            print(self.__textos["mensagem_final_errou"])
+            print(self.__textos.mensagem_final_errou)
 
     def __propriedades_niveis(self, nivel):
-        self.__propriedades = self.__arquivo_propriedades['niveis']['nivel' + str(nivel)]
+        self.__propriedades = self.__arquivo_propriedades.niveis['nivel' + str(nivel)]

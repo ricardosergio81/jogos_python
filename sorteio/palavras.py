@@ -1,6 +1,6 @@
 import random
 from sorteio.sorteio import Sorteio
-from carrega_json import carrega_json
+from carrega_json import carrega_json_list
 
 
 class Paravras(Sorteio):
@@ -15,4 +15,4 @@ class Paravras(Sorteio):
         return self.__lista_palavras[random_index]
 
     def __carragar_palavras(self):
-        self.__lista_palavras = carrega_json(__file__, 'lista_palavras.json')
+        self.__lista_palavras = carrega_json_list(__file__, 'lista_palavras.json')

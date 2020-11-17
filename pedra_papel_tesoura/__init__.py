@@ -1,7 +1,7 @@
-from carrega_json import carrega_json
+from carrega_json import carrega_json_dict
 
-dicionario = carrega_json(__file__, 'dicionario.json')
+dicionario = carrega_json_dict(__file__, 'dicionario.json')
 
-propriedades = carrega_json(__file__, 'propriedades.json')
+propriedades = carrega_json_dict(__file__, 'propriedades.json')
 
 from .jogo_pedra_papel_tesoura import JogoPedraPapelTesoura
