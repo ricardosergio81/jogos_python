@@ -1,4 +1,4 @@
-from jogos import Jogos
+from jogo.jogos import Jogos
 
 def main():
     print("****************************")

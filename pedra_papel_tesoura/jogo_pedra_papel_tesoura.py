@@ -1,7 +1,7 @@
 from pedra_papel_tesoura.enum_ppt import EnumPPT
 from pedra_papel_tesoura.pedra_papel_tesoura import PedraPapelTesoura
 from pedra_papel_tesoura import dicionario, propriedades
-from jogo import Jogo
+from jogo.jogo import Jogo
 from pontuacao.pontuacaojogos import PontuacaoJogos
 import random
 

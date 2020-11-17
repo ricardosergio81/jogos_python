@@ -1,6 +1,6 @@
 from adivinhacao.adivinhacao import Advinhacao
 from adivinhacao import dicionario, propriedades
-from jogo import Jogo
+from jogo.jogo import Jogo
 from pontuacao.pontuacaojogos import PontuacaoJogos
 from adivinhacao.adivinhacao_error import PerdeuMaiorError, PerdeuMenorError
 

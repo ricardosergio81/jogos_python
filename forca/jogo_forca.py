@@ -1,6 +1,6 @@
 from forca.forca import Forca
 from forca import dicionario, propriedades
-from jogo import Jogo
+from jogo.jogo import Jogo
 from pontuacao.pontuacaojogos import PontuacaoJogos
 from sorteio.palavras import Paravras
 
