@@ -3,12 +3,15 @@ from pontuacao.pontuacao import Pontuacao
 
 class PontuacaoJogos(Pontuacao):
 
-    def __init__(self, jogo, pontuacao):
+    def __init__(self, jogo):
         super(PontuacaoJogos, self).__init__()
         self.__jogo = jogo
-        self.__pontuacao = pontuacao
+        self.__pontuacao = 0
         self.__pontuacao_geral = self._carrega_pontuacao(jogo)
         self.__rodada_atual = self.marca_rodada_atual(self.__pontuacao_geral['rodada_atual'], self.__pontuacao_geral['total_rodadas'])
+
+    def pontos_iniciais(self, pontos):
+        self.__pontuacao = pontos
 
     def ganhou_pontos(self, pontos):
         self.__pontuacao += pontos

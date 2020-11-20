@@ -11,25 +11,25 @@ class JogoAdvinhacao(Jogo):
         self.__textos = dicionario
         self.__arquivo_propriedades = propriedades
         self.__acertou = False
+        self.__pontuacao = PontuacaoJogos("advinhacao")
 
     def introducao(self):
         print(self.__textos.introducao)
 
     def interacao(self):
-        nivel = int(input(self.__textos.introducao_nivel))
-        self.__propriedades_niveis(nivel)
+        self.__propriedades_niveis()
 
-        self.__advinhacao = Advinhacao(self.__propriedades["numero_de"], self.__propriedades["numero_ate"])
-        self.__pontuacao = PontuacaoJogos("advinhacao", self.__propriedades['pontos_iniciais'])
+        advinhacao = Advinhacao(self.__propriedades["numero_de"], self.__propriedades["numero_ate"])
+        self.__pontuacao.pontos_iniciais(self.__propriedades['pontos_iniciais'])
 
         tentativas = self.__propriedades['tentativas']
-        print(self.__textos.interacoes.format(tentativas, self.__advinhacao.numero_de, self.__advinhacao.numero_ate))
+        print(self.__textos.interacoes.format(tentativas, advinhacao.numero_de, advinhacao.numero_ate))
 
         for i in range(0, tentativas):
             try:
                 print(self.__textos.diferenca_tentativa.format(i + 1, tentativas))
                 valor_tentativa = int(input(self.__textos.informe_numero))
-                self.__acertou = self.__advinhacao.jogo(valor_tentativa)
+                self.__acertou = advinhacao.jogo(valor_tentativa)
 
                 if self.__acertou:
                     break
@@ -55,5 +55,6 @@ class JogoAdvinhacao(Jogo):
         else:
             print(self.__textos.mensagem_final_errou)
 
-    def __propriedades_niveis(self, nivel):
+    def __propriedades_niveis(self):
+        nivel = int(input(self.__textos.introducao_nivel))
         self.__propriedades = self.__arquivo_propriedades.niveis['nivel' + str(nivel)]
