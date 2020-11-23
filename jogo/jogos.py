@@ -12,7 +12,7 @@ class Jogos:
 
         self.__carrega_textos()
         self.__instancia = self.__classe()
-        self.__pontuacao = PontuacaoJogos(self.__nome_jogo, 0)
+        self.__pontuacao = PontuacaoJogos(self.__nome_jogo)
 
     def rodar(self):
         self.__instancia.introducao()

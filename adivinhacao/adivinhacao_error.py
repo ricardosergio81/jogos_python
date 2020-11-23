@@ -5,3 +5,6 @@ class PerdeuMaiorError(Exception):
 
 class PerdeuMenorError(Exception):
     pass
+
+class JaAcertouAnteriormente(Exception):
+    pass

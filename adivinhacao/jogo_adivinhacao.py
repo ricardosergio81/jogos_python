@@ -2,7 +2,7 @@ from adivinhacao.adivinhacao import Advinhacao
 from adivinhacao import dicionario, propriedades
 from jogo.jogo import Jogo
 from pontuacao.pontuacaojogos import PontuacaoJogos
-from adivinhacao.adivinhacao_error import PerdeuMaiorError, PerdeuMenorError
+from adivinhacao.adivinhacao_error import *
 
 
 class JogoAdvinhacao(Jogo):
@@ -29,7 +29,7 @@ class JogoAdvinhacao(Jogo):
             try:
                 print(self.__textos.diferenca_tentativa.format(i + 1, tentativas))
                 valor_tentativa = int(input(self.__textos.informe_numero))
-                self.__acertou = advinhacao.jogo(valor_tentativa)
+                self.__acertou = advinhacao == valor_tentativa
 
                 if self.__acertou:
                     break
@@ -38,6 +38,8 @@ class JogoAdvinhacao(Jogo):
                 self.__errou_tentativa(self.__textos.diferenca_menor)
             except PerdeuMaiorError:
                 self.__errou_tentativa(self.__textos.diferenca_maior)
+            except JaAcertouAnteriormente:
+                print(self.__textos.ja_acertou)
             except ValueError:
                 print("\n***** Entrada Inválida *****\n")
 

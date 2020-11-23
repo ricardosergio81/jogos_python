@@ -7,6 +7,7 @@
   "interacoes": "Você tera {} tentativas para acertar o número entre {} e {}",
   "diferenca_maior": "MAIOR",
   "diferenca_menor": "MENOR",
+  "ja_acertou": "Você já acertou o número.",
   "diferenca_tentativa": "Tentativa {} de {}",
   "informe_numero": "Informe um número:",
   "tente_novamente": "Você errou.\nO número é {}! Tente novamente."
