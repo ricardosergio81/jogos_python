@@ -1,4 +1,4 @@
-from carrega_json import carrega_json_dict
+from carrega_json import carrega_json_dict, carrega_json_list
 
 dicionario = carrega_json_dict(__file__, 'dicionario.json')
 

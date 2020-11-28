@@ -10,16 +10,17 @@ class JogoForca(Jogo):
     def __init__(self):
         self.__textos = dicionario
         self.__arquivo_propriedades = propriedades
+        self.__pontuacao = PontuacaoJogos("forca")
 
     def introducao(self):
         print(self.__textos.introducao)
 
     def interacao(self):
-        nivel = int(input(self.__textos.introducao_nivel))
-        self.__propriedades_niveis(nivel)
+        self.__propriedades_niveis()
 
         self.__forca = Forca(self.__sorteia_palavra())
-        self.__pontuacao = PontuacaoJogos("forca", self.__propriedades['pontos_iniciais'])
+        self.__pontuacao = PontuacaoJogos("forca")
+        self.__pontuacao.pontos_iniciais(self.__propriedades['pontos_iniciais'])
 
         total_de_tentativas = self.__propriedades['tentativas']
         print(self.__textos.interacoes.format(total_de_tentativas))
@@ -55,8 +56,10 @@ class JogoForca(Jogo):
         else:
             print(self.__textos.mensagem_final_errou)
 
-    def __propriedades_niveis(self, nivel):
+    def __propriedades_niveis(self):
+        nivel = int(input(self.__textos.introducao_nivel))
         self.__propriedades = self.__arquivo_propriedades.niveis['nivel' + str(nivel)]
+        print(self.__propriedades['pontos_iniciais'])
 
     def __sorteia_palavra(self):
         palavras = Paravras()
