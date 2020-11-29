@@ -1,4 +1,7 @@
+#! /usr/bin/python3
+
 from jogo.jogos import Jogos
+from pontuacao.pontuacaogeral import PontuacaoGeral
 
 def main():
     print("****************************")
@@ -18,13 +21,16 @@ def main():
                              "\n"
                              "Escolha o jogo:"))
 
-            if jogo == 2:
+            if jogo == 1:
+                PontuacaoGeral().rodar()
+            elif jogo == 2:
                 Jogos("adivinhacao", "adivinhacao.jogo_adivinhacao", "JogoAdvinhacao").rodar()
             elif jogo == 3:
                 Jogos("forca", "forca.jogo_forca", "JogoForca").rodar()
             elif jogo == 4:
                 Jogos("pedra_papel_tesoura", "pedra_papel_tesoura.jogo_pedra_papel_tesoura", "JogoPedraPapelTesoura").rodar()
             elif jogo == 9:
+                print("\n\nFim de jogo.\nAté Mais (: ")
                 quero_jogar = False
             else:
                 print("\n***** Jogo não implementado *****\n")
@@ -33,4 +39,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt):
+        print("\n\nFim de jogo.\nAté Mais (: ")
